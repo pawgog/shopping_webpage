@@ -1,8 +1,7 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import * as S from './ProductSingle.styled';
 import Button from '../globalComponent/Button';
 import { ProductObject } from '../utils/type';
-import { UrlContext } from '../utils/context';
 import { staticText } from '../utils/staticText';
 
 interface IProps {
@@ -11,12 +10,11 @@ interface IProps {
 }
 
 const ProductSingle: FC<IProps> = ({ product, addToCartFn }) => {
-  const url = useContext(UrlContext);
-  const { title, imageUrl } = product;
+  const { title } = product;
 
   return (
     <S.Product>
-      <img src={`${url}${imageUrl}`} alt={title} />
+      <img src="https://via.placeholder.com/560" alt={title} />
       <h4>{title}</h4>
       <Button $width={'auto'} $height={'30px'} onClick={addToCartFn}>
         {staticText.addToCart}
