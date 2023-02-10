@@ -1,6 +1,6 @@
 import { useState, useEffect, RefObject } from 'react';
 
-export const useOnLoadImages = (ref: RefObject<HTMLElement>) => {
+const useOnLoadImages = (ref: RefObject<HTMLElement>) => {
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
@@ -33,3 +33,5 @@ export const useOnLoadImages = (ref: RefObject<HTMLElement>) => {
 
   return status;
 };
+
+export default useOnLoadImages;

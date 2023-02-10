@@ -4,16 +4,20 @@ import { colors } from '../globalStyle/colors';
 
 export const Product = styled.div`
   display: grid;
-  grid-template-columns: 1fr; 
-  grid-template-rows: 2fr 0.5fr 0.5fr; 
-  gap: .5rem 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 0.5fr 0.5fr;
+  gap: 0.5rem 0;
   align-items: center;
   text-align: center;
   width: 100%;
-  margin: .8rem;
-  padding: .8rem .3rem;
+  margin: 0.8rem;
+  padding: 0.8rem 0.3rem;
   background: ${colors.white};
-  
+
+  & img {
+    min-height: 255px;
+  }
+
   ${device.sm`
     width: 100%;
 

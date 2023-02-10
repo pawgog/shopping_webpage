@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useAppDispatch } from '../hooks/useStore';
 import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';
@@ -21,7 +21,6 @@ const Products = () => {
   };
 
   console.log(products);
-  
 
   if (isError && !isLoading)
     return (
