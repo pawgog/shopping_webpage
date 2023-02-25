@@ -17,14 +17,7 @@ const ProductSingle: FC<IProps> = ({ product, addToCartFn }) => {
 
   return (
     <S.Product ref={productRef}>
-      <img
-        src={
-          imagesLoaded
-            ? 'https://via.placeholder.com/560'
-            : '../assets/blurred.jpg'
-        }
-        alt={title}
-      />
+      <img src={imagesLoaded ? 'https://via.placeholder.com/560' : '../assets/blurred.jpg'} alt={title} />
       <h4>{title}</h4>
       <Button $width={'auto'} $height={'30px'} onClick={addToCartFn}>
         {staticText.addToCart}

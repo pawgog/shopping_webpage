@@ -20,7 +20,7 @@ const Button = styled.button<IButtonStyled>(
     &:hover {
       background-color: ${colors.blueOpacity};
     }
-  `,
+  `
 );
 
 export default Button;

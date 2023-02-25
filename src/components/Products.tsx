@@ -37,11 +37,7 @@ const Products = () => {
           <Spinner />
         ) : (
           products.map((product: ProductObject) => (
-            <ProductSingle
-              key={product._id}
-              product={product}
-              addToCartFn={() => addToCart(product)}
-            />
+            <ProductSingle key={product._id} product={product} addToCartFn={() => addToCart(product)} />
           ))
         )}
       </S.ProductsBoard>

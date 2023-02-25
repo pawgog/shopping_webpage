@@ -11,5 +11,5 @@ root.render(
     <Provider store={store}>
       <Dashboard />
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

@@ -13,9 +13,7 @@ const useFetchingProducts = (apiUrl: string) => {
       .then((response) =>
         response.ok
           ? response.json()
-          : Promise.reject(
-              `Cannot communicate with the mocked REST API server (${response.statusText})`
-            )
+          : Promise.reject(`Cannot communicate with the mocked REST API server (${response.statusText})`)
       )
       .then((products) => {
         setProducts(products);
