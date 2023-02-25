@@ -1,33 +1,35 @@
 type PriceObject = {
-  amount: number;
-  currency: string;
+    amount: number;
+    currency: string;
 };
 
 export type ProductObject = {
-  id: number;
-  title: string;
-  imageUrl: string;
-  url: string;
-  prices: PriceObject[];
+    _id: number;
+    productId: number;
+    title: string;
+    imageUrl: string;
+    url: string;
+    prices: PriceObject[];
 };
 
 export type ProductState = {
-  cart: Cart;
+    cart: ProductObject[];
+    pricesSum: PriceObject[];
 };
 
 export type Cart = {
-  items: Item[];
-  summery: PriceObject[];
+    cart: ProductObject[];
+    pricesSum: PriceObject[];
 };
 
 export type Item = {
-  product: ProductObject;
-  quantity: number;
+    product: ProductObject;
+    quantity: number;
 };
 
 type Action = {
-  type: string;
-  payload?: any;
+    type: string;
+    payload?: any;
 };
 
 export type Dispatch = (action: Action) => void;

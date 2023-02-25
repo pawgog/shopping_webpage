@@ -17,7 +17,7 @@ const Products = () => {
   const { products, isLoading, isError } = useFetchingProducts(apiUrl);
 
   const addToCart = (product: ProductObject) => {
-    dispatch(addProductsCartAsync(product.id));
+    dispatch(addProductsCartAsync(product));
   };
 
   console.log(products);
@@ -38,7 +38,7 @@ const Products = () => {
         ) : (
           products.map((product: ProductObject) => (
             <ProductSingle
-              key={product.id}
+              key={product._id}
               product={product}
               addToCartFn={() => addToCart(product)}
             />
