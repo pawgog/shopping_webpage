@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../globalStyle/colors';
 
@@ -21,4 +22,14 @@ export const ProductsBoard = styled.div`
   flex-flow: row wrap;
   width: 100%;
   margin: 0.5rem 0 1rem;
+`;
+
+export const ButtonNav = styled(Link)`
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: red;
+  border-radius: 4rem;
 `;

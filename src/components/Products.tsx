@@ -33,6 +33,7 @@ const Products = () => {
     <S.Products>
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
+        <S.ButtonNav to="/cart" />
         {isLoading ? (
           <Spinner />
         ) : (
