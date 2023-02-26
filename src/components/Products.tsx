@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useAppDispatch } from '../hooks/useStore';
 import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';

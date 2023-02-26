@@ -19,6 +19,7 @@ const useFetchingProducts = (apiUrl: string) => {
         setProducts(products);
       })
       .catch((err) => {
+        console.log('useFetchingProducts error', err);
         setIsError(true);
       })
       .finally(() => {
