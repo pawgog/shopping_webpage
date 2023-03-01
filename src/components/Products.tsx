@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useAppDispatch } from '../hooks/useStore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';
 import Spinner from '../globalComponent/Spinner';
@@ -33,7 +35,9 @@ const Products = () => {
     <S.Products>
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
-        <S.ButtonNav to="/cart" />
+        <S.ButtonNav to="/cart">
+          <FontAwesomeIcon icon={faCartShopping} />
+        </S.ButtonNav>
         {isLoading ? (
           <Spinner />
         ) : (

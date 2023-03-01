@@ -26,10 +26,37 @@ export const ProductsBoard = styled.div`
 
 export const ButtonNav = styled(Link)`
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 2rem;
   right: 1rem;
-  width: 4rem;
-  height: 4rem;
-  background-color: red;
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
   border-radius: 4rem;
+  color: ${colors.white};
+  background-color: ${colors.grey};
+  &:hover {
+    color: ${colors.white};
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 4rem;
+    z-index: -1;
+    transition: all 0.25s ease;
+  }
+  &::before {
+    transition-duration: 0.5s;
+    box-shadow: inset 0 0 0 0px ${colors.green};
+  }
+  &:hover::before {
+    box-shadow: inset 0 0 0 60px ${colors.green};
+  }
 `;
