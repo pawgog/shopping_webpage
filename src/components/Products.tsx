@@ -36,6 +36,7 @@ const Products = () => {
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
         <S.ButtonNav to="/cart">
+          <S.CircleItems>2</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
         {isLoading ? (

@@ -60,3 +60,16 @@ export const ButtonNav = styled(Link)`
     box-shadow: inset 0 0 0 60px ${colors.green};
   }
 `;
+
+export const CircleItems = styled.span`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -1rem;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4rem;
+  background-color: ${colors.red};
+`;
