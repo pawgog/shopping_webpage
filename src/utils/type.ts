@@ -1,4 +1,4 @@
-type PriceObject = {
+export type PriceObject = {
   amount: number;
   currency: string;
 };

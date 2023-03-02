@@ -6,6 +6,7 @@ import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
+import useFetchingCart from '../hooks/useFetchingCart';
 import useFetchingProducts from '../hooks/useFetchingProducts';
 import { addProductsCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
@@ -16,15 +17,17 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const url = useContext(UrlContext);
   const apiUrl = `${url}/products`;
-  const { products, isLoading, isError } = useFetchingProducts(apiUrl);
+  const apiUrlCart = `${url}/cart`;
+  const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
+  const { cartItems } = useFetchingCart(apiUrlCart);
 
   const addToCart = (product: ProductObject) => {
     dispatch(addProductsCartAsync(product));
   };
 
-  console.log(products);
+  console.log(products, cartItems);
 
-  if (isError && !isLoading)
+  if (isErrorProduct && !isLoadingProduct)
     return (
       <Error>
         <h2>{staticText.error}</h2>
@@ -36,10 +39,10 @@ const Products = () => {
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
         <S.ButtonNav to="/cart">
-          <S.CircleItems>2</S.CircleItems>
+          <S.CircleItems>{cartItems.length}</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
-        {isLoading ? (
+        {isLoadingProduct ? (
           <Spinner />
         ) : (
           products.map((product: ProductObject) => (
