@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import * as S from './ProductSingle.styled';
 import Button from '../globalComponent/Button';
+import CardLoading from '../globalComponent/CardLoading';
 import useOnLoadImages from '../hooks/useOnLoadImages';
 import { ProductObject } from '../utils/type';
 import { staticText } from '../utils/staticText';
@@ -17,7 +18,13 @@ const ProductSingle: FC<IProps> = ({ product, addToCartFn }) => {
 
   return (
     <S.Product ref={productRef}>
-      <img src={imagesLoaded ? 'https://via.placeholder.com/560' : '../assets/blurred.jpg'} alt={title} />
+      {imagesLoaded ? (
+        <img src="https://via.placeholder.com/560" alt={title} />
+      ) : (
+        <S.CardLoadingBlock>
+          <CardLoading />
+        </S.CardLoadingBlock>
+      )}
       <h4>{title}</h4>
       <Button $width={'auto'} $height={'30px'} onClick={addToCartFn}>
         {staticText.addToCart}

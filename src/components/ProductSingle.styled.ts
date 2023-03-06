@@ -44,3 +44,9 @@ export const Product = styled.div`
     margin: 0;
   }
 `;
+
+export const CardLoadingBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
