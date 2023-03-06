@@ -9,7 +9,6 @@ const shine = keyframes`
 const CardLoading = styled.div`
   width: 100%;
   min-height: 255px;
-  margin: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
   border-radius: 5px;

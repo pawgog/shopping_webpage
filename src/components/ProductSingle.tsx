@@ -18,13 +18,9 @@ const ProductSingle: FC<IProps> = ({ product, addToCartFn }) => {
 
   return (
     <S.Product ref={productRef}>
-      {imagesLoaded ? (
-        <img src="https://via.placeholder.com/560" alt={title} />
-      ) : (
-        <S.CardLoadingBlock>
-          <CardLoading />
-        </S.CardLoadingBlock>
-      )}
+      <S.ProductImage>
+        {imagesLoaded ? <img src="https://via.placeholder.com/560" alt={title} /> : <CardLoading />}
+      </S.ProductImage>
       <h4>{title}</h4>
       <Button $width={'auto'} $height={'30px'} onClick={addToCartFn}>
         {staticText.addToCart}

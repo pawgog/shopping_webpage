@@ -45,8 +45,9 @@ export const Product = styled.div`
   }
 `;
 
-export const CardLoadingBlock = styled.div`
+export const ProductImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0.5rem;
 `;
