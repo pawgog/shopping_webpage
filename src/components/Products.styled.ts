@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../globalStyle/colors';
 
@@ -24,7 +23,7 @@ export const ProductsBoard = styled.div`
   margin: 0.5rem 0 1rem;
 `;
 
-export const ButtonNav = styled(Link)`
+export const ButtonNav = styled.button`
   position: fixed;
   display: flex;
   justify-content: center;

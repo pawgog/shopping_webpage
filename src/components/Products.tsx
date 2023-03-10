@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useAppDispatch } from '../hooks/useStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';
+import CartModal from './CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
 import useFetchingCart from '../hooks/useFetchingCart';
@@ -18,11 +19,18 @@ const Products = () => {
   const url = useContext(UrlContext);
   const apiUrl = `${url}/products`;
   const apiUrlCart = `${url}/cart`;
+
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartItems } = useFetchingCart(apiUrlCart);
 
   const addToCart = (product: ProductObject) => {
     dispatch(addProductsCartAsync(product));
+  };
+
+  const handleOpenCart = () => {
+    setModalOpen((prev) => !prev);
   };
 
   console.log(products, cartItems);
@@ -38,7 +46,7 @@ const Products = () => {
     <S.Products>
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
-        <S.ButtonNav to="/cart">
+        <S.ButtonNav onClick={handleOpenCart}>
           <S.CircleItems>{cartItems.length}</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
@@ -50,6 +58,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
+      {modalOpen ? <CartModal handleOpenCart={handleOpenCart} /> : null}
     </S.Products>
   );
 };
