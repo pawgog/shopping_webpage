@@ -58,7 +58,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
-      <CartModal isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
+      <CartModal cartItems={cartItems} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
     </S.Products>
   );
 };
