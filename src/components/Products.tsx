@@ -20,7 +20,7 @@ const Products = () => {
   const apiUrl = `${url}/products`;
   const apiUrlCart = `${url}/cart`;
 
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartItems } = useFetchingCart(apiUrlCart);
@@ -58,7 +58,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
-      {modalOpen ? <CartModal handleOpenCart={handleOpenCart} /> : null}
+      <CartModal isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
     </S.Products>
   );
 };

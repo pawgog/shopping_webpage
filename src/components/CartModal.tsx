@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 import Button from '../globalComponent/Button';
 
 interface IProps {
+  isModalOpen: boolean;
   handleOpenCart: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const CartModal = ({ handleOpenCart }: IProps) => {
+const CartModal = ({ isModalOpen, handleOpenCart }: IProps) => {
   return (
-    <S.CartModal>
+    <S.CartModal isModalOpen={isModalOpen}>
       <Button $width={'auto'} $height={'30px'} onClick={handleOpenCart}>
         <FontAwesomeIcon icon={faLeftLong} />
       </Button>
