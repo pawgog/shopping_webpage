@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../globalStyle/colors';
+import { colors } from '../../globalStyle/colors';
 
 interface IProps {
   isModalOpen: boolean;

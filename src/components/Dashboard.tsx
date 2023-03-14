@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import * as S from './Dashboard.styled';
 import Products from './Products';
-import Cart from './Cart';
+import Cart from './Cart/Cart';
 import { UrlContext, serverUrl } from '../utils/context';
 
 const Dashboard = () => {

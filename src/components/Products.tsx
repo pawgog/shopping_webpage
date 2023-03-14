@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import * as S from './Products.styled';
 import ProductSingle from './ProductSingle';
-import CartModal from './CartModal';
+import CartModal from './Cart/CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
 import useFetchingCart from '../hooks/useFetchingCart';
