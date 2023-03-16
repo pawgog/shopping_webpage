@@ -6,6 +6,7 @@ const initialState: ProductState = {
     {
       _id: 0,
       productId: 0,
+      quantity: 0,
       title: '',
       imageUrl: '',
       url: '',

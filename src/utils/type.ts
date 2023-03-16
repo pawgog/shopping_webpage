@@ -10,6 +10,7 @@ export type ProductObject = {
   imageUrl: string;
   url: string;
   prices: PriceObject[];
+  quantity: number;
 };
 
 export type ProductState = {

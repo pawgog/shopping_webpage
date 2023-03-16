@@ -11,6 +11,7 @@ export const CartModal = styled.div<IProps>`
   height: 100vh;
   top: 0;
   right: ${({ isModalOpen }) => (isModalOpen ? 0 : '-45%')};
+  overflow-y: auto;
   background: ${colors.white};
   transition: all 0.6s;
 `;
