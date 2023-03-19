@@ -3,14 +3,26 @@ import { colors } from '../../globalStyle/colors';
 
 export const Cart = styled.div`
   display: grid;
-  grid-template-columns: 0.6fr 1.5fr 1fr 0.6fr;
-  grid-template-rows: 0.5fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 0.5fr;
   gap: 0 0.5rem;
   align-items: center;
   text-align: center;
-  width: 100%;
+  width: 95%;
   margin: 0.8rem;
   background: ${colors.white};
+
+  & > .cart-image {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  & > .cart-title {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  & > .cart-buttons {
+    grid-area: 2 / 1 / 3 / 3;
+  }
 
   & img {
     width: 120px;

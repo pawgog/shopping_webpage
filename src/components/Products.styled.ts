@@ -36,6 +36,7 @@ export const ButtonNav = styled.button`
   border-radius: 4rem;
   color: ${colors.white};
   background-color: ${colors.grey};
+  cursor: pointer;
   &:hover {
     color: ${colors.white};
   }

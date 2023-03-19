@@ -19,9 +19,11 @@ const CartSingle: FC<IProps> = ({ product, addToCartFn, deleteSingleItemFromCart
   return (
     <S.Cart>
       {/* <img src={`${url}${imageUrl}`} alt={title} /> */}
-      <img src="https://via.placeholder.com/260" alt={title} />
-      <div>{title}</div>
-      <div>
+      <div className="cart-image">
+        <img src="https://via.placeholder.com/260" alt={title} />
+      </div>
+      <div className="cart-title">{title}</div>
+      <div className="cart-buttons">
         <button onClick={addToCartFn}>+</button>
         <span>{quantity}</span>
         <button onClick={deleteSingleItemFromCartFn}>-</button>
