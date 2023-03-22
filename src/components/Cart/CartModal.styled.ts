@@ -7,7 +7,7 @@ interface IProps {
 
 export const CartModal = styled.div<IProps>`
   position: fixed;
-  width: 40%;
+  width: 30%;
   height: 100vh;
   top: 0;
   right: ${({ isModalOpen }) => (isModalOpen ? 0 : '-45%')};
@@ -16,4 +16,8 @@ export const CartModal = styled.div<IProps>`
   background: ${colors.white};
   box-shadow: -2px 5px 35px ${colors.grey};
   transition: all 0.6s;
+
+  & h2 {
+    text-align: center;
+  }
 `;

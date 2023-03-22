@@ -3,7 +3,7 @@ import { colors } from '../../globalStyle/colors';
 
 export const Cart = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.5fr 1fr;
   grid-template-rows: 1fr 0.5fr;
   gap: 0 0.5rem;
   align-items: center;
@@ -18,6 +18,7 @@ export const Cart = styled.div`
 
   & > .cart-title {
     grid-area: 1 / 2 / 2 / 3;
+    text-align: left;
   }
 
   & > .cart-buttons {
