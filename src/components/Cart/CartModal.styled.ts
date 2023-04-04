@@ -21,3 +21,10 @@ export const CartModal = styled.div<IProps>`
     text-align: center;
   }
 `;
+
+export const CheckoutBtn = styled.div`
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #8EAECC;
+  border-radius: 4px;
+`;

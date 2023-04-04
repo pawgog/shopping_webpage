@@ -29,7 +29,9 @@ const CartModal = ({ cartItems, isModalOpen, handleOpenCart }: IProps) => {
           <CartSingle key={item._id} product={item} addToCartFn={testFunc} deleteSingleItemFromCartFn={testFunc} />
         );
       })}
-      <Link to="/cart">Checkout</Link>
+      <S.CheckoutBtn>
+        <Link to="/cart">Checkout</Link>
+      </S.CheckoutBtn>
     </S.CartModal>
   );
 };
