@@ -10,3 +10,15 @@ export const ButtonBack = styled(Link)`
   left: 3rem;
   font-size: 2rem;
 `;
+
+export const CartBoard = styled.div`
+  margin: 2rem 0;
+`;
+
+export const SingleProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+`;

@@ -27,4 +27,5 @@ export const CheckoutBtn = styled.div`
   text-align: center;
   border: 1px solid #8EAECC;
   border-radius: 4px;
+  cursor: pointer;
 `;
