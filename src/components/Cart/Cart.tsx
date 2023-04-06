@@ -12,19 +12,32 @@ const Cart = () => {
 
   return (
     <>
-      <h2>Cart</h2>
+      <h2>Your Cart</h2>
       <S.ButtonBack to="/">
         <FontAwesomeIcon icon={faLeftLong} />
       </S.ButtonBack>
       <S.CartBoard>
-        {cartItems.map(({ title, quantity }) => {
+        {cartItems.map(({ title, quantity, prices }) => {
           return (
             <S.SingleProduct key={title}>
-              <div className="cart-image">
-                <img src="https://via.placeholder.com/160" alt={title} />
-              </div>
-              <div className="cart-title">{title}</div>
-              <span>{quantity}</span>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="https://via.placeholder.com/160" alt={title} /> {title}</td>
+                    <td>{prices[0].amount}</td>
+                    <td>{quantity}</td>
+                    <td>6000</td>
+                  </tr>
+                </tbody>
+              </table>
             </S.SingleProduct>
           );
         })}        
