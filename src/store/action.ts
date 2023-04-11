@@ -19,7 +19,7 @@ export const getProductsCartAsync = () => async (dispatch: Dispatch) => {
       withCredentials: false
     });
     dispatch(getProductCart(data));
-    if (data.items.length > 0) dispatch(getProductCart(data));
+    if (data[0].cart.length > 0) dispatch(getProductCart(data[0]));
   } catch (error) {
     let message;
 
