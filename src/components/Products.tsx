@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useAppDispatch } from '../hooks/useStore';
+import { useAppDispatch, useAppSelector } from '../hooks/useStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import * as S from './Products.styled';
@@ -13,6 +13,7 @@ import { addProductsCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
 import { ProductObject } from '../utils/type';
 import { staticText } from '../utils/staticText';
+import { RootState } from '../store/store';
 
 const Products = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +25,7 @@ const Products = () => {
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartItems } = useFetchingCart(apiUrlCart);
+  const { productsStore } = useAppSelector((state: RootState) => state)
 
   const addToCart = (product: ProductObject) => {
     dispatch(addProductsCartAsync(product));
@@ -33,7 +35,7 @@ const Products = () => {
     setModalOpen((prev) => !prev);
   };
 
-  console.log(products, cartItems);
+  console.log(products, cartItems, productsStore);
 
   if (isErrorProduct && !isLoadingProduct)
     return (
@@ -47,7 +49,7 @@ const Products = () => {
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
         <S.ButtonNav onClick={handleOpenCart}>
-          <S.CircleItems>{cartItems.length}</S.CircleItems>
+          <S.CircleItems>{productsStore.cart.length}</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
         {isLoadingProduct ? (
@@ -58,7 +60,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
-      <CartModal cartItems={cartItems} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
+      <CartModal cartItems={productsStore.cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
     </S.Products>
   );
 };
