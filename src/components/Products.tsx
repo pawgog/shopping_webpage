@@ -7,7 +7,6 @@ import ProductSingle from './ProductSingle';
 import CartModal from './Cart/CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
-import useFetchingCart from '../hooks/useFetchingCart';
 import useFetchingProducts from '../hooks/useFetchingProducts';
 import { addProductsCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
@@ -24,7 +23,6 @@ const Products = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
-  const { cartItems } = useFetchingCart(apiUrlCart);
   const { productsStore } = useAppSelector((state: RootState) => state)
 
   const addToCart = (product: ProductObject) => {
@@ -35,7 +33,7 @@ const Products = () => {
     setModalOpen((prev) => !prev);
   };
 
-  console.log(products, cartItems, productsStore);
+  console.log(products, productsStore);
 
   if (isErrorProduct && !isLoadingProduct)
     return (
