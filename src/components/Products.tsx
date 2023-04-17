@@ -18,7 +18,6 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const url = useContext(UrlContext);
   const apiUrl = `${url}/products`;
-  const apiUrlCart = `${url}/cart`;
 
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
