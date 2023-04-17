@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/useStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,7 @@ import CartModal from './Cart/CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
 import useFetchingProducts from '../hooks/useFetchingProducts';
-import { addProductsCartAsync } from '../store/action';
+import { addProductsCartAsync, getProductsCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
 import { ProductObject } from '../utils/type';
 import { staticText } from '../utils/staticText';
@@ -23,6 +23,10 @@ const Products = () => {
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { productsStore } = useAppSelector((state: RootState) => state)
+
+  useEffect(() => {
+    dispatch(getProductsCartAsync());
+  }, [])
 
   const addToCart = (product: ProductObject) => {
     dispatch(addProductsCartAsync(product));

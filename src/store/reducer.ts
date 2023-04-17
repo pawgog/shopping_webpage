@@ -21,7 +21,8 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     getProductsCartAsync: (state: ProductState, action: PayloadAction<Cart>) => {
-      state = action.payload;
+      state.cart = action.payload.cart
+      state.pricesSum = action.payload.pricesSum
     },
     addProductsCartAsync: (state, action: PayloadAction<Cart>) => {
       state.cart = action.payload.cart
