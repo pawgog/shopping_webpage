@@ -18,8 +18,8 @@ export const getProductsCartAsync = () => async (dispatch: Dispatch) => {
       url: `${apiUrl}`,
       withCredentials: false
     });
-    dispatch(getProductCart(data));
-    if (data[0].cart.length > 0) dispatch(getProductCart(data[0]));
+    const [cartData] = data
+    if (cartData.cart.length > 0) dispatch(getProductCart(cartData));
   } catch (error) {
     let message;
 
