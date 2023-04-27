@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProductState, Cart } from '../utils/type';
+import { CartState, Cart } from '../utils/type';
 
-const initialState: ProductState = {
+const initialState: CartState = {
   cart: [
     {
       _id: 0,
@@ -16,11 +16,11 @@ const initialState: ProductState = {
   pricesSum: []
 };
 
-export const productsSlice = createSlice({
-  name: 'products',
+export const cartSlice = createSlice({
+  name: 'cart',
   initialState,
   reducers: {
-    getProductsCartAsync: (state: ProductState, action: PayloadAction<Cart>) => {
+    getProductsCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
       state.cart = action.payload.cart
       state.pricesSum = action.payload.pricesSum
     },
@@ -28,13 +28,13 @@ export const productsSlice = createSlice({
       state.cart = action.payload.cart
       state.pricesSum = action.payload.pricesSum
     },
-    updateQuantityProductCartAsync: (state: ProductState, action: PayloadAction<Cart>) => {
+    updateQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
       state = action.payload;
     },
-    removeQuantityProductCartAsync: (state: ProductState, action: PayloadAction<Cart>) => {
+    removeQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
       state = action.payload;
     },
-    deleteProductCartAction: (state: ProductState, action: PayloadAction<Cart>) => {
+    deleteProductCartAction: (state: CartState, action: PayloadAction<Cart>) => {
       state = action.payload;
     }
   }
@@ -46,6 +46,6 @@ export const {
   updateQuantityProductCartAsync: updateQuantityProductCart,
   removeQuantityProductCartAsync: removeQuantityProductCart,
   deleteProductCartAction: deleteProductCart
-} = productsSlice.actions;
+} = cartSlice.actions;
 
-export default productsSlice.reducer;
+export default cartSlice.reducer;

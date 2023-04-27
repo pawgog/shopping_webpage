@@ -13,7 +13,7 @@ export type ProductObject = {
   quantity: number;
 };
 
-export type ProductState = {
+export type CartState = {
   cart: ProductObject[];
   pricesSum: PriceObject[];
 };

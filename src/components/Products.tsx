@@ -22,7 +22,8 @@ const Products = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
-  const { productsStore } = useAppSelector((state: RootState) => state)
+  const { cartStore } = useAppSelector((state: RootState) => state);
+  const { cart } = cartStore;
 
   useEffect(() => {
     dispatch(getProductsCartAsync());
@@ -36,7 +37,7 @@ const Products = () => {
     setModalOpen((prev) => !prev);
   };
 
-  console.log(products, productsStore);
+  console.log(products, cartStore);
 
   if (isErrorProduct && !isLoadingProduct)
     return (
@@ -50,7 +51,7 @@ const Products = () => {
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
         <S.ButtonNav onClick={handleOpenCart}>
-          <S.CircleItems>{productsStore.cart.length}</S.CircleItems>
+          <S.CircleItems>{cart.length}</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
         {isLoadingProduct ? (
@@ -61,7 +62,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
-      <CartModal cartItems={productsStore.cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
+      <CartModal cartItems={cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
     </S.Products>
   );
 };
