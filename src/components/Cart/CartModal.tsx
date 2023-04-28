@@ -11,9 +11,10 @@ interface IProps {
   cartItems: ProductObject[];
   isModalOpen: boolean;
   handleOpenCart: React.MouseEventHandler<HTMLButtonElement>;
+  deleteFromCart: (id: string) => void;
 }
 
-const CartModal = ({ cartItems, isModalOpen, handleOpenCart }: IProps) => {
+const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: IProps) => {
   const testFunc = () => {
     return;
   };
@@ -26,7 +27,7 @@ const CartModal = ({ cartItems, isModalOpen, handleOpenCart }: IProps) => {
       <h2>Cart</h2>
       {cartItems.map((item) => {
         return (
-          <CartSingle key={item._id} product={item} addToCartFn={testFunc} deleteSingleItemFromCartFn={testFunc} />
+          <CartSingle key={item._id} cart={item} addToCartFn={testFunc} deleteFromCartFn={deleteFromCart} />
         );
       })}
       <S.CheckoutBtn>

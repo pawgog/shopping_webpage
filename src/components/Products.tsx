@@ -8,7 +8,7 @@ import CartModal from './Cart/CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
 import useFetchingProducts from '../hooks/useFetchingProducts';
-import { addProductsCartAsync, getProductsCartAsync } from '../store/action';
+import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
 import { ProductObject } from '../utils/type';
 import { staticText } from '../utils/staticText';
@@ -31,6 +31,12 @@ const Products = () => {
 
   const addToCart = (product: ProductObject) => {
     dispatch(addProductsCartAsync(product));
+  };
+
+  const deleteFromCart = (id: string) => {
+    console.log(id);
+    
+    dispatch(deleteProductCartAsync(id));
   };
 
   const handleOpenCart = () => {
@@ -62,7 +68,7 @@ const Products = () => {
           ))
         )}
       </S.ProductsBoard>
-      <CartModal cartItems={cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} />
+      <CartModal cartItems={cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} deleteFromCart={deleteFromCart} />
     </S.Products>
   );
 };

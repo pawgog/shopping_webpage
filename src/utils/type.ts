@@ -4,7 +4,7 @@ export type PriceObject = {
 };
 
 export type ProductObject = {
-  _id: number;
+  _id: string;
   productId: number;
   title: string;
   imageUrl: string;

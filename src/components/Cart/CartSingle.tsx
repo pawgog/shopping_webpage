@@ -4,17 +4,17 @@ import { ProductObject } from '../../utils/type';
 // import { UrlContext } from '../../utils/context';
 
 interface IProps {
-  product: ProductObject;
+  cart: ProductObject;
   addToCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  // deleteFromCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  deleteSingleItemFromCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  deleteFromCartFn: (id: string) => void;
+  // deleteSingleItemFromCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CartSingle: FC<IProps> = ({ product, addToCartFn, deleteSingleItemFromCartFn }) => {
+const CartSingle: FC<IProps> = ({ cart, addToCartFn, deleteFromCartFn }) => {
   // const url = useContext(UrlContext);
-  const { title, quantity } = product;
+  const { title, quantity } = cart;
 
-  console.log('product', product);
+  console.log('cart single', cart);
 
   return (
     <S.Cart>
@@ -26,8 +26,8 @@ const CartSingle: FC<IProps> = ({ product, addToCartFn, deleteSingleItemFromCart
       <div className="cart-buttons">
         <button onClick={addToCartFn}>+</button>
         <span>{quantity}</span>
-        <button onClick={deleteSingleItemFromCartFn}>-</button>
-        {/* <button onClick={}>X</button> */}
+        {/* <button onClick={deleteSingleItemFromCartFn}>-</button> */}
+        <button onClick={() => deleteFromCartFn(cart._id)}>X</button>
       </div>
     </S.Cart>
   );

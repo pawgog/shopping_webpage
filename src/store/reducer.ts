@@ -4,7 +4,7 @@ import { CartState, Cart } from '../utils/type';
 const initialState: CartState = {
   cart: [
     {
-      _id: 0,
+      _id: '',
       productId: 0,
       quantity: 0,
       title: '',

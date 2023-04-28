@@ -93,13 +93,18 @@ export const removeQuantityProductCartAsync = (id: number, quantity: number) => 
   }
 };
 
-export const deleteProductCartAsync = (id: number) => async (dispatch: Dispatch) => {
+export const deleteProductCartAsync = (id: string) => async (dispatch: Dispatch) => {
   try {
     const { data } = await axios({
       method: 'delete',
       url: `${apiUrl}/${id}`,
-      withCredentials: true
+      withCredentials: false,
+      params: {
+        id
+      }
     });
+    console.log('delete', data);
+    
     dispatch(deleteProductCart(data));
   } catch (error) {
     let message;
