@@ -93,7 +93,7 @@ export const removeQuantityProductCartAsync = (id: number, quantity: number) => 
   }
 };
 
-export const deleteProductCartAsync = (id: string) => async (dispatch: Dispatch) => {
+export const deleteProductCartAsync = (id: number) => async (dispatch: Dispatch) => {
   try {
     const { data } = await axios({
       method: 'delete',

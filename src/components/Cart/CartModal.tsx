@@ -11,7 +11,7 @@ interface IProps {
   cartItems: ProductObject[];
   isModalOpen: boolean;
   handleOpenCart: React.MouseEventHandler<HTMLButtonElement>;
-  deleteFromCart: (id: string) => void;
+  deleteFromCart: (id: number) => void;
 }
 
 const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: IProps) => {

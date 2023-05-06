@@ -33,7 +33,7 @@ const Products = () => {
     dispatch(addProductsCartAsync(product));
   };
 
-  const deleteFromCart = (id: string) => {
+  const deleteFromCart = (id: number) => {
     console.log(id);
     
     dispatch(deleteProductCartAsync(id));

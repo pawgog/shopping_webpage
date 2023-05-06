@@ -6,7 +6,7 @@ import { ProductObject } from '../../utils/type';
 interface IProps {
   cart: ProductObject;
   addToCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  deleteFromCartFn: (id: string) => void;
+  deleteFromCartFn: (id: number) => void;
   // deleteSingleItemFromCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -27,7 +27,7 @@ const CartSingle: FC<IProps> = ({ cart, addToCartFn, deleteFromCartFn }) => {
         <button onClick={addToCartFn}>+</button>
         <span>{quantity}</span>
         {/* <button onClick={deleteSingleItemFromCartFn}>-</button> */}
-        <button onClick={() => deleteFromCartFn(cart._id)}>X</button>
+        <button onClick={() => deleteFromCartFn(cart.productId)}>X</button>
       </div>
     </S.Cart>
   );
