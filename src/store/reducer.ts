@@ -35,7 +35,8 @@ export const cartSlice = createSlice({
       state = action.payload;
     },
     deleteProductCartAction: (state: CartState, action: PayloadAction<Cart>) => {
-      state = action.payload;
+      state.cart = action.payload.cart
+      state.pricesSum = action.payload.pricesSum
     }
   }
 });
