@@ -26,8 +26,8 @@ const CartSingle: FC<IProps> = ({ cart, addToCartFn, deleteFromCartFn }) => {
       <div className="cart-buttons">
         <button onClick={addToCartFn}>+</button>
         <span>{quantity}</span>
-        {/* <button onClick={deleteSingleItemFromCartFn}>-</button> */}
-        <button onClick={() => deleteFromCartFn(cart.productId)}>X</button>
+        <button onClick={addToCartFn}>-</button>
+        <button className="cart-buttons__delete" onClick={() => deleteFromCartFn(cart.productId)}><span>X</span></button>
       </div>
     </S.Cart>
   );
