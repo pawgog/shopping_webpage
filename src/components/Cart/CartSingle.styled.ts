@@ -10,7 +10,7 @@ export const Cart = styled.div`
   align-items: center;
   text-align: center;
   width: 95%;
-  margin: 0.8rem;
+  margin: 0.5rem;
   border: 1px solid ${colors.grey};
   background: ${colors.white};
 
