@@ -8,7 +8,7 @@ import CartModal from './Cart/CartModal';
 import Spinner from '../globalComponent/Spinner';
 import Error from '../globalComponent/Error';
 import useFetchingProducts from '../hooks/useFetchingProducts';
-import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync } from '../store/action';
+import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync, updateQuantityProductCartAsync } from '../store/action';
 import { UrlContext } from '../utils/context';
 import { ProductObject } from '../utils/type';
 import { staticText } from '../utils/staticText';
@@ -30,7 +30,13 @@ const Products = () => {
   }, [])
 
   const addToCart = (product: ProductObject) => {
-    dispatch(addProductsCartAsync(product));
+    const isProductExist = cart?.some((item) => item.productId === product.productId);
+
+    if (isProductExist) {
+      dispatch(updateQuantityProductCartAsync(product.productId));
+    } else {
+      dispatch(addProductsCartAsync(product));
+    }
   };
 
   const deleteFromCart = (id: number) => {

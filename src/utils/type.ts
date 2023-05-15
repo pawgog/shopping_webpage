@@ -10,7 +10,7 @@ export type ProductObject = {
   imageUrl: string;
   url: string;
   prices: PriceObject[];
-  quantity: number;
+  quantity?: number;
 };
 
 export type CartState = {

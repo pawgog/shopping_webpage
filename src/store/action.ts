@@ -50,14 +50,13 @@ export const addProductsCartAsync = (data: ProductObject) => async (dispatch: Di
   }
 };
 
-export const updateQuantityProductCartAsync = (id: number, quantity: number) => async (dispatch: Dispatch) => {
+export const updateQuantityProductCartAsync = (id: number) => async (dispatch: Dispatch) => {
   try {
     const { data } = await axios({
       method: 'put',
       url: `${apiUrl}/${id}`,
-      withCredentials: true,
       params: {
-        quantity: quantity + 1
+        id
       }
     });
     dispatch(updateQuantityProductCart(data));
