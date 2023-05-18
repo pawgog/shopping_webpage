@@ -29,7 +29,8 @@ export const cartSlice = createSlice({
       state.pricesSum = action.payload.pricesSum
     },
     updateQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
-      state = action.payload;
+      state.cart = action.payload.cart
+      state.pricesSum = action.payload.pricesSum
     },
     removeQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
       state = action.payload;

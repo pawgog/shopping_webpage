@@ -30,10 +30,11 @@ const Products = () => {
   }, [])
 
   const addToCart = (product: ProductObject) => {
-    const isProductExist = cart?.some((item) => item.productId === product.productId);
+    const cartProduct = cart?.find((item: ProductObject) => item.productId === product.productId);
+    const productQuantity = cartProduct?.quantity ? cartProduct.quantity + 1 : 0
 
-    if (isProductExist) {
-      dispatch(updateQuantityProductCartAsync(product.productId));
+    if (typeof cartProduct !== "undefined") {
+      dispatch(updateQuantityProductCartAsync(product.productId, productQuantity));
     } else {
       dispatch(addProductsCartAsync(product));
     }
