@@ -99,7 +99,7 @@ export const deleteProductCartAsync = (id: number) => async (dispatch: Dispatch)
       method: 'delete',
       url: `${apiUrl}/${id}`,
       withCredentials: false,
-      params: {
+      data: {
         id
       }
     });
