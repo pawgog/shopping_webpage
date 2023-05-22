@@ -15,10 +15,6 @@ interface IProps {
 }
 
 const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: IProps) => {
-  const testFunc = () => {
-    return;
-  };
-
   return (
     <S.CartModal isModalOpen={isModalOpen}>
       <Button $width={'auto'} $height={'30px'} onClick={handleOpenCart}>
@@ -27,7 +23,7 @@ const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: I
       <h2>Cart</h2>
       {cartItems.map((item) => {
         return (
-          <CartSingle key={item._id} cart={item} addToCartFn={testFunc} deleteFromCartFn={deleteFromCart} />
+          <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />
         );
       })}
       <S.CheckoutBtn>

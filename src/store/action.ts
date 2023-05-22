@@ -57,7 +57,7 @@ export const updateQuantityProductCartAsync = (id: number, quantity: number) => 
       url: `${apiUrl}/${id}`,
       data: {
         id,
-        quantity
+        quantity: quantity + 1
       }
     });
     dispatch(updateQuantityProductCart(data));
@@ -76,8 +76,8 @@ export const removeQuantityProductCartAsync = (id: number, quantity: number) => 
     const { data } = await axios({
       method: 'put',
       url: `${apiUrl}/${id}`,
-      withCredentials: true,
-      params: {
+      data: {
+        id,
         quantity: quantity > 1 ? quantity - 1 : 1
       }
     });

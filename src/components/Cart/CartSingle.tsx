@@ -1,18 +1,27 @@
 import React, { FC } from 'react';
-import * as S from './CartSingle.styled';
+import { useAppDispatch } from '../../hooks/useStore';
+import { removeQuantityProductCartAsync, updateQuantityProductCartAsync } from '../../store/action';
 import { ProductObject } from '../../utils/type';
+import * as S from './CartSingle.styled';
 // import { UrlContext } from '../../utils/context';
 
 interface IProps {
   cart: ProductObject;
-  addToCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   deleteFromCartFn: (id: number) => void;
-  // deleteSingleItemFromCartFn: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CartSingle: FC<IProps> = ({ cart, addToCartFn, deleteFromCartFn }) => {
+const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
   // const url = useContext(UrlContext);
-  const { title, quantity } = cart;
+  const dispatch = useAppDispatch();
+  const { title, productId, quantity=0 } = cart;
+
+  const updateToCartFn = (id: number, quantity: number) => {
+    dispatch(updateQuantityProductCartAsync(id, quantity));
+  };
+
+  const removeFromCartFn = (id: number, quantity: number) => {
+    dispatch(removeQuantityProductCartAsync(id, quantity));
+  };
 
   console.log('cart single', cart);
 
@@ -24,10 +33,10 @@ const CartSingle: FC<IProps> = ({ cart, addToCartFn, deleteFromCartFn }) => {
       </div>
       <div className="cart-title">{title}</div>
       <div className="cart-buttons">
-        <button onClick={addToCartFn}>+</button>
+        <button onClick={() => updateToCartFn(productId, quantity)}>+</button>
         <span>{quantity}</span>
-        <button onClick={addToCartFn}>-</button>
-        <button className="cart-buttons__delete" onClick={() => deleteFromCartFn(cart.productId)}><span>X</span></button>
+        <button onClick={() => removeFromCartFn(productId, quantity)}>-</button>
+        <button className="cart-buttons__delete" onClick={() => deleteFromCartFn(productId)}><span>X</span></button>
       </div>
     </S.Cart>
   );
