@@ -8,7 +8,7 @@ import useFetchingCart from '../../hooks/useFetchingCart';
 const Cart = () => {
   const url = useContext(UrlContext);
   const apiUrlCart = `${url}/cart`;
-  const { cartItems } = useFetchingCart(apiUrlCart);
+  const { cartItems, pricesSum } = useFetchingCart(apiUrlCart);
 
   return (
     <>
@@ -17,30 +17,31 @@ const Cart = () => {
         <FontAwesomeIcon icon={faLeftLong} />
       </S.ButtonBack>
       <S.CartBoard>
-        {cartItems.map(({ title, quantity, prices }) => {
-          return (
-            <S.SingleProduct key={title}>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
+        <S.SingleProduct>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map(({ title, quantity=1, prices }) => {
+                return (
+                  <tr key={title}>
                     <td><img src="https://via.placeholder.com/160" alt={title} /> {title}</td>
-                    <td>{prices[0].amount}</td>
+                    <td>{prices[0]?.amount}</td>
                     <td>{quantity}</td>
-                    <td>6000</td>
+                    <td>{prices[0]?.amount * quantity}</td>
                   </tr>
-                </tbody>
-              </table>
-            </S.SingleProduct>
-          );
-        })}        
+                );
+              })}
+            </tbody>
+          </table>
+        </S.SingleProduct>
+        <p>{pricesSum[0]?.amount}</p>    
       </S.CartBoard>
     </>
   );
