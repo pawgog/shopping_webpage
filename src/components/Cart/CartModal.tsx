@@ -1,11 +1,10 @@
 import React from 'react';
 import * as S from './CartModal.styled';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+import { ProductObject } from '../../utils/type';
 import Button from '../../globalComponent/Button';
 import CartSingle from './CartSingle';
-import { ProductObject } from '../../utils/type';
 
 interface IProps {
   cartItems: ProductObject[];
@@ -26,9 +25,7 @@ const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: I
           <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />
         );
       })}
-      <S.CheckoutBtn>
-        <Link to="/cart">Checkout</Link>
-      </S.CheckoutBtn>
+      <S.CheckoutBtn to="/cart">Checkout</S.CheckoutBtn>
     </S.CartModal>
   );
 };
