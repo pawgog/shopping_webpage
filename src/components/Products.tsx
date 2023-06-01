@@ -23,7 +23,7 @@ const Products = () => {
 
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartStore } = useAppSelector((state: RootState) => state);
-  const { cart } = cartStore;
+  const { cart, pricesSum } = cartStore;
 
   useEffect(() => {
     dispatch(getProductsCartAsync());
@@ -41,8 +41,6 @@ const Products = () => {
   };
 
   const deleteFromCart = (id: number) => {
-    console.log(id);
-    
     dispatch(deleteProductCartAsync(id));
   };
 
@@ -63,10 +61,12 @@ const Products = () => {
     <S.Products>
       <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
+        {pricesSum.length > 0 && (
         <S.ButtonNav onClick={handleOpenCart}>
           <S.CircleItems>{cart.length}</S.CircleItems>
           <FontAwesomeIcon icon={faCartShopping} />
         </S.ButtonNav>
+        )}
         {isLoadingProduct ? (
           <Spinner />
         ) : (
