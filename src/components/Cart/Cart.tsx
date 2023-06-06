@@ -8,7 +8,7 @@ import useFetchingCart from '../../hooks/useFetchingCart';
 import Spinner from '../../globalComponent/Spinner';
 import Error from '../../globalComponent/Error';
 
-const columnTable = ['Item', 'Price', 'Quantity', 'Total']
+const columnTable = ['', 'Item', 'Price', 'Quantity', 'Total']
 
 const Cart = () => {
   const url = useContext(UrlContext);
@@ -37,29 +37,24 @@ const Cart = () => {
           <Spinner />
         ) : (
           <>
-            <S.SingleProduct>
-              <table>
-                <thead>
-                  <tr>
-                    {columnTable.map((column: string) => <th key={column}>{column}</th>)}
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.map(({ title, quantity=1, prices }) => {
-                    const [sek] = prices;
-                    return (
-                      <tr key={title}>
-                        <td><img src="https://via.placeholder.com/160" alt={title} /> {title}</td>
-                        <td>{sek?.amount}</td>
-                        <td>{quantity}</td>
-                        <td>{sek?.amount * quantity}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </S.SingleProduct>
-            <p>{sek?.amount}</p>   
+            <S.TableStyled>
+              <li className="table-header">
+                {columnTable.map((column: string, index) => <div key={column} className={`col col-${index}`}>{column}</div>)}
+              </li>
+              {cartItems.map(({ title, quantity=1, prices }) => {
+                const [sek] = prices;
+                  return (
+                    <li key={title} className="table-row">
+                      <div className="col col-0"><img src="https://via.placeholder.com/160" alt={title} /></div>
+                      <div className="col col-1" >{title}</div>
+                      <div className="col col-2" >{sek?.amount}</div>
+                      <div className="col col-3">{quantity}</div>
+                      <div className="col col-4">{sek?.amount * quantity}</div>
+                    </li>
+                  );
+                })}
+              </S.TableStyled>
+              <p>{sek?.amount}</p>   
           </>
         )}
       </S.CartBoard>
