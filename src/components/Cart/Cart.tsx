@@ -47,14 +47,14 @@ const Cart = () => {
                     <li key={title} className="table-row">
                       <div className="col col-0"><img src="https://via.placeholder.com/160" alt={title} /></div>
                       <div className="col col-1" >{title}</div>
-                      <div className="col col-2" >{sek?.amount}</div>
+                      <div className="col col-2" >{sek?.amount} {sek?.currency}</div>
                       <div className="col col-3">{quantity}</div>
-                      <div className="col col-4">{sek?.amount * quantity}</div>
+                      <div className="col col-4">{sek?.amount * quantity} {sek?.currency}</div>
                     </li>
                   );
                 })}
               </S.TableStyled>
-              <p>{sek?.amount}</p>   
+              <p>{sek?.amount} {sek?.currency}</p>   
           </>
         )}
       </S.CartBoard>
