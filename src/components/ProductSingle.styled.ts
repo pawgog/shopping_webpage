@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import device from '../globalStyle/devices';
+import { deviceMinWidth } from '../globalStyle/devices';
 import { colors } from '../globalStyle/colors';
 
 export const Product = styled.div`
@@ -18,7 +18,7 @@ export const Product = styled.div`
     min-height: 255px;
   }
 
-  ${device.sm`
+  ${deviceMinWidth.sm`
     width: 100%;
 
     & img {
@@ -26,17 +26,17 @@ export const Product = styled.div`
       margin: 0 auto;
     }
   `}
-  ${device.md`
+  ${deviceMinWidth.md`
     width: 44%;
 
     & img {
       width: 100%;
     }
   `}
-  ${device.lg`
+  ${deviceMinWidth.lg`
     width: 29%;
   `}
-  ${device.xl`
+  ${deviceMinWidth.xl`
     width: 21%;
   `}
 
