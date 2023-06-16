@@ -3,31 +3,16 @@ import { deviceMaxWidth } from '../globalStyle/devices';
 import { colors } from '../globalStyle/colors';
 
 export const NavBar = styled.nav`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  padding: 1rem;
   background-color: ${colors.grey};
   color: ${colors.white};
 
   .logo {
     font-size: 32px;
-  }
-
-  .menu {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .menu li:hover {
-    background-color: ${colors.grey};
-    border-radius: 1rem;
-    transition: 0.3s ease;
-  }
-
-  .menu li {
-    padding: 0.5rem 1rem;
   }
 
   input[type=checkbox] {
@@ -41,32 +26,47 @@ export const NavBar = styled.nav`
   }
 
   ${deviceMaxWidth.lg`
-    .menu {
-      display:none;
-      position: absolute;
-      background-color: #7f7d7d;
-      right: 0;
-      left: 0;
-      margin-top: 1rem;
-      text-align: center;
-      padding: 1rem 0;
+    .hamburger {
+      display: block;
+    }
+  `}
+`;
+
+export const NavMenu = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  & li:hover {
+    background-color: ${colors.grey};
+    border-radius: 1rem;
+    transition: 0.3s ease;
+  }
+
+  & li {
+    padding: 0.5rem 1rem;
+  }
+
+  ${deviceMaxWidth.lg`
+    display:none;
+    position: absolute;
+    background-color: #7f7d7d;
+    right: 0;
+    left: 0;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem 0;
+
+    input[type=checkbox]:checked ~ & {
+      display: block;
     }
 
-    .menu li:hover {
+    & li:hover {
       display: inline-block;
       transition: 0.3s ease;
     }
 
-    .menu li + li {
+    & li + li {
       margin-top: 1rem;
-    }
-
-    input[type=checkbox]:checked ~ .menu {
-      display: block;
-    }
-
-    .hamburger {
-      display: block;
     }
   `}
 `;

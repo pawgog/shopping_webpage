@@ -3,7 +3,7 @@ import { colors } from '../globalStyle/colors';
 
 export const Products = styled.div`
   width: 90%;
-  margin: 2rem auto;
+  margin: 6rem 2rem;
   background-color: ${colors.background};
   box-shadow: 1px 1px 15px 5px rgba(12, 12, 12, 0.2);
 `;
@@ -28,7 +28,7 @@ export const ButtonNav = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 2rem;
+  top: 6rem;
   right: 1rem;
   width: 4.5rem;
   height: 4.5rem;
