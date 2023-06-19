@@ -14,10 +14,6 @@ export const Cart = styled.div`
   border-bottom: 1px solid ${colors.grey};
   background: ${colors.white};
 
-  &:last-child {
-    border: none
-  }
-
   & > .cart-image {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -52,6 +48,7 @@ export const Cart = styled.div`
 
   & button {
     margin: 0.4rem;
+    color: ${colors.white};
     background-color: ${colors.blue};
     border: 1px solid ${colors.blue};
     border-radius: 4px;

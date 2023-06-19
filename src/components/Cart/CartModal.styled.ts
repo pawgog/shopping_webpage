@@ -22,6 +22,10 @@ export const CartModal = styled.div<IProps>`
   & h2 {
     text-align: center;
   }
+
+  & div:last-of-type {
+    border: none;
+  }
 `;
 
 export const CheckoutBtn = styled(Link)`

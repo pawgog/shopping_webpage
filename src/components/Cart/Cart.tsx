@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import * as S from './Cart.styled';
-import { UrlContext } from '../../utils/context';
-import { staticText } from '../../utils/staticText';
 import useFetchingCart from '../../hooks/useFetchingCart';
 import Spinner from '../../globalComponent/Spinner';
 import Error from '../../globalComponent/Error';
+import { UrlContext } from '../../utils/context';
+import { staticText } from '../../utils/staticText';
 
 const columnTable = ['', 'Item', 'Price', 'Quantity', 'Total']
 

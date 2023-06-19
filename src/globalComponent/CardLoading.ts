@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
 const shine = keyframes`
-    to {
-      background-position-x: -200%;
-    }
+  to {
+    background-position-x: -200%;
+  }
 `;
 
 const CardLoading = styled.div`

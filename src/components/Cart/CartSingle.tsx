@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
+import * as S from './CartSingle.styled';
 import { useAppDispatch } from '../../hooks/useStore';
 import { removeQuantityProductCartAsync, updateQuantityProductCartAsync } from '../../store/action';
 import { ProductObject } from '../../utils/type';
-import * as S from './CartSingle.styled';
-// import { UrlContext } from '../../utils/context';
 
 interface IProps {
   cart: ProductObject;
@@ -11,7 +10,6 @@ interface IProps {
 }
 
 const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
-  // const url = useContext(UrlContext);
   const dispatch = useAppDispatch();
   const { title, productId, quantity=0 } = cart;
 
@@ -27,7 +25,6 @@ const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
 
   return (
     <S.Cart>
-      {/* <img src={`${url}${imageUrl}`} alt={title} /> */}
       <div className="cart-image">
         <img src="https://via.placeholder.com/260" alt={title} />
       </div>

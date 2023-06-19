@@ -11,5 +11,4 @@ export const deviceWidth = (query: string) => (Object.keys(size) as Array<keyof 
 }, {} as { [index: string]: (style: TemplateStringsArray) => string });
 
 export const deviceMinWidth = deviceWidth('min')
-
 export const deviceMaxWidth = deviceWidth('max')
