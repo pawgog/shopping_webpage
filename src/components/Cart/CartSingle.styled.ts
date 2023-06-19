@@ -11,8 +11,12 @@ export const Cart = styled.div`
   text-align: center;
   width: 95%;
   margin: 0.5rem;
-  border: 1px solid ${colors.grey};
+  border-bottom: 1px solid ${colors.grey};
   background: ${colors.white};
+
+  &:last-child {
+    border: none
+  }
 
   & > .cart-image {
     grid-area: 1 / 1 / 2 / 2;
@@ -22,6 +26,7 @@ export const Cart = styled.div`
     grid-area: 1 / 2 / 2 / 3;
     text-align: left;
     padding: 0.3rem;
+    font-weight: 500;
   }
 
   & > .cart-buttons {
@@ -32,8 +37,8 @@ export const Cart = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    width: 15px;
-    height: 15px;
+    width: 1rem;
+    height: 1rem;
     padding: 0;
     font-size: 0.5rem;
   }
@@ -46,11 +51,8 @@ export const Cart = styled.div`
   }
 
   & button {
-    width: 30px;
-    height: 30px;
     margin: 0.4rem;
-    padding: 0.4rem;
-    background-color: ${colors.white};
+    background-color: ${colors.blue};
     border: 1px solid ${colors.blue};
     border-radius: 4px;
     cursor: pointer;

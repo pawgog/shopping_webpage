@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import * as S from './Cart.styled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { UrlContext } from '../../utils/context';
 import { staticText } from '../../utils/staticText';
 import useFetchingCart from '../../hooks/useFetchingCart';
@@ -28,10 +26,7 @@ const Cart = () => {
 
   return (
     <>
-      <h2>Your Cart</h2>
-      <S.ButtonBack to="/">
-        <FontAwesomeIcon icon={faLeftLong} />
-      </S.ButtonBack>
+      <h2>Your Shopping Cart</h2>
       <S.CartBoard>
         {isLoading ? (
           <Spinner />

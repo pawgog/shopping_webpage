@@ -28,8 +28,13 @@ export const CheckoutBtn = styled(Link)`
   display: flex;
   justify-content: center;
   margin: 0.5rem;
-  padding: 15px;
-  border: 1px solid #8EAECC;
-  border-radius: 4px;
+  padding: 0.5rem;
+  border: 1px solid ${colors.blue};
+  border-radius: 0.2rem;
+  transition: background-color .3s;
   cursor: pointer;
+  
+  &:hover {
+    background-color: ${colors.blueOpacity};
+  }
 `;

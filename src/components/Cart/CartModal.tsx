@@ -16,10 +16,10 @@ interface IProps {
 const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: IProps) => {
   return (
     <S.CartModal isModalOpen={isModalOpen}>
-      <Button $width={'auto'} $height={'30px'} onClick={handleOpenCart}>
+      <Button $width={'auto'} $height={'30px'} $border={false} onClick={handleOpenCart}>
         <FontAwesomeIcon icon={faLeftLong} />
       </Button>
-      <h2>Cart</h2>
+      <h3>Shopping cart</h3>
       {cartItems.map((item) => {
         return (
           <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />

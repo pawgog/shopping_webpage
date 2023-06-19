@@ -1,16 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { colors } from '../../globalStyle/colors';
-
-export const ButtonBack = styled(Link)`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 1rem;
-  left: 3rem;
-  font-size: 2rem;
-`;
 
 export const CartBoard = styled.div`
   width: 85%;
@@ -24,9 +13,9 @@ export const TableStyled = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 3px;
-    padding: 25px 30px;
-    margin-bottom: 25px;
+    border-radius: 0.2rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
   }
   & .table-header {
     color: ${colors.white};

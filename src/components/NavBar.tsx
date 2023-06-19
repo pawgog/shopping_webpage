@@ -11,7 +11,7 @@ const NavBar = () => {
         <S.NavMenu>
           <li><a href="/">Home</a></li>
           <li><a href="/">Products</a></li>
-          <li><a href="/">Cart</a></li>
+          <li><a href="/cart">Cart</a></li>
           <li><a href="/">About</a></li>
         </S.NavMenu>
       </ul>
