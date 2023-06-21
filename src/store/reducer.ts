@@ -20,26 +20,31 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    getProductsCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
-      state.cart = action.payload.cart
-      state.pricesSum = action.payload.pricesSum
-    },
-    addProductsCartAsync: (state, action: PayloadAction<Cart>) => {
-      state.cart = action.payload.cart
-      state.pricesSum = action.payload.pricesSum
-    },
-    updateQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
-      state.cart = action.payload.cart
-      state.pricesSum = action.payload.pricesSum
-    },
-    removeQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => {
-      state.cart = action.payload.cart
-      state.pricesSum = action.payload.pricesSum
-    },
-    deleteProductCartAction: (state: CartState, action: PayloadAction<Cart>) => {
-      state.cart = action.payload.cart
-      state.pricesSum = action.payload.pricesSum
-    }
+    getProductsCartAsync: (state: CartState, action: PayloadAction<Cart>) => ({
+      ...state,
+      cart: action.payload.cart,
+      pricesSum: action.payload.pricesSum
+    }),
+    addProductsCartAsync: (state, action: PayloadAction<Cart>) => ({
+      ...state,
+      cart: action.payload.cart,
+      pricesSum: action.payload.pricesSum
+    }),
+    updateQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => ({
+      ...state,
+      cart: action.payload.cart,
+      pricesSum: action.payload.pricesSum
+    }),
+    removeQuantityProductCartAsync: (state: CartState, action: PayloadAction<Cart>) => ({
+      ...state,
+      cart: action.payload.cart,
+      pricesSum: action.payload.pricesSum
+    }),
+    deleteProductCartAction: (state: CartState, action: PayloadAction<Cart>) => ({
+      ...state,
+      cart: action.payload.cart,
+      pricesSum: action.payload.pricesSum
+    }),
   }
 });
 

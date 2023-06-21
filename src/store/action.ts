@@ -38,7 +38,6 @@ export const addProductsCartAsync = (data: ProductObject) => async (dispatch: Di
       data,
       withCredentials: false
     });
-
     dispatch(addProductCart(dataPost));
   } catch (error) {
     let message;
@@ -81,7 +80,6 @@ export const removeQuantityProductCartAsync = (id: number, quantity: number) => 
         quantity: quantity > 1 ? quantity - 1 : 1
       }
     });
-
     dispatch(removeQuantityProductCart(data));
   } catch (error) {
     let message;
@@ -103,8 +101,6 @@ export const deleteProductCartAsync = (id: number) => async (dispatch: Dispatch)
         id
       }
     });
-    console.log('delete', data);
-    
     dispatch(deleteProductCart(data));
   } catch (error) {
     let message;
