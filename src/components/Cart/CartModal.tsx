@@ -3,6 +3,7 @@ import * as S from './CartModal.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { ProductObject } from '../../utils/type';
+import { staticText } from '../../utils/staticText';
 import Button from '../../globalComponent/Button';
 import CartSingle from './CartSingle';
 
@@ -19,7 +20,7 @@ const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: I
       <Button $width={'auto'} $height={'30px'} $border={false} onClick={handleOpenCart}>
         <FontAwesomeIcon icon={faLeftLong} />
       </Button>
-      <h3>Shopping cart</h3>
+      <h3>{staticText.shoppingCart}</h3>
       {cartItems.map((item) => {
         return (
           <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />
