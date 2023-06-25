@@ -5,6 +5,7 @@ export const colors = {
   blue: '#8EAECC',
   green: '#8cc63f',
   blueOpacity: 'rgba(142, 174, 204, 0.2)',
+  lightGrey: '#a5a2a2',
   grey: '#7f7d7d',
   background: '#f7f7f7'
 };

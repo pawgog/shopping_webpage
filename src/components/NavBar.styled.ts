@@ -36,35 +36,40 @@ export const NavMenu = styled.div`
   display: flex;
   gap: 1rem;
 
-  & li {
+  & a {
     padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
 
-  & li:hover {
-    background-color: ${colors.grey};
-    border-radius: 1rem;
+  & a:hover {
+    background-color: ${colors.lightGrey};
     transition: 0.3s ease;
   }
 
+  & a:active,
+    .active {
+      background-color: ${colors.lightGrey};
+  }
+
   ${deviceMaxWidth.lg`
-    display:none;
+    display: none;
     position: absolute;
-    background-color: colors.grey;
+    background-color: #7f7d7d;
     right: 0;
     left: 0;
-    margin-top: 1rem;
     text-align: center;
     padding: 1rem 0;
 
     input[type=checkbox]:checked ~ & {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
-    & li + li {
+    & a + a {
       margin-top: 1rem;
     }
 
-    & li:hover {
+    & a {
       display: inline-block;
       transition: 0.3s ease;
     }

@@ -6,4 +6,5 @@ export const Dashboard = styled.div`
   flex-direction: column;
   min-width: 100%;
   min-height: 100%;
+  padding-top: 6rem;
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { colors } from '../../globalStyle/colors';
+import { deviceMaxWidth } from '../../globalStyle/devices';
 
 interface IProps {
   isModalOpen: boolean;
@@ -12,7 +13,6 @@ export const CartModal = styled.div<IProps>`
   height: 100vh;
   top: 0;
   right: ${({ isModalOpen }) => (isModalOpen ? 0 : '-45%')};
-  padding: 1rem;
   overflow-y: auto;
   z-index: 1000;
   background: ${colors.white};
@@ -26,6 +26,22 @@ export const CartModal = styled.div<IProps>`
   & div:last-of-type {
     border: none;
   }
+
+  ${({ isModalOpen }) => isModalOpen ? deviceMaxWidth.lg`
+    width: 100%;
+    right: -110%;
+  `: deviceMaxWidth.lg`
+    width: 100%;
+    right: 0;
+  `}
+`;
+
+export const CartModalContent = styled.div`
+  padding: 0 1rem;
+
+  ${deviceMaxWidth.lg`
+    padding: 0 2rem;
+  `}
 `;
 
 export const CheckoutBtn = styled(Link)`

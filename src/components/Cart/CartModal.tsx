@@ -17,16 +17,18 @@ interface IProps {
 const CartModal = ({ cartItems, isModalOpen, handleOpenCart, deleteFromCart }: IProps) => {
   return (
     <S.CartModal isModalOpen={isModalOpen}>
-      <Button $width={'auto'} $height={'30px'} $border={false} onClick={handleOpenCart}>
-        <FontAwesomeIcon icon={faLeftLong} />
-      </Button>
-      <h3>{staticText.shoppingCart}</h3>
-      {cartItems.map((item) => {
-        return (
-          <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />
-        );
-      })}
-      <S.CheckoutBtn to="/cart">Checkout</S.CheckoutBtn>
+      <S.CartModalContent>
+        <Button $width={'auto'} $height={'30px'} $border={false} onClick={handleOpenCart}>
+          <FontAwesomeIcon icon={faLeftLong} />
+        </Button>
+        <h3>{staticText.shoppingCart}</h3>
+        {cartItems.map((item) => {
+          return (
+            <CartSingle key={item._id} cart={item} deleteFromCartFn={deleteFromCart} />
+          );
+        })}
+        <S.CheckoutBtn to="/cart">Checkout</S.CheckoutBtn>        
+      </S.CartModalContent>
     </S.CartModal>
   );
 };

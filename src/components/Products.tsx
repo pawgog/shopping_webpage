@@ -59,7 +59,6 @@ const Products = () => {
 
   return (
     <S.Products>
-      <S.ProductsTopBar>{staticText.products}</S.ProductsTopBar>
       <S.ProductsBoard>
         {pricesSum.length > 0 && (
         <S.ButtonNav onClick={handleOpenCart}>

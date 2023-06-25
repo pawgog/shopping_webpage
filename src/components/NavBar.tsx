@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './NavBar.styled';
+import { NavLink } from 'react-router-dom';
 import { staticText } from '../utils/staticText';
 
 const NavBar = () => {
@@ -10,10 +11,10 @@ const NavBar = () => {
         <input type="checkbox" id="checkbox_toggle" />
         <label htmlFor="checkbox_toggle" className="hamburger">&#9776;</label>
         <S.NavMenu>
-          <li><a href="/">{staticText.home}</a></li>
-          <li><a href="/">{staticText.products}</a></li>
-          <li><a href="/cart">{staticText.cart}</a></li>
-          <li><a href="/">{staticText.about}</a></li>
+          <NavLink to="/">{staticText.home}</NavLink>
+          <NavLink to="/products">{staticText.products}</NavLink>
+          <NavLink to="/cart">{staticText.cart}</NavLink>
+          <NavLink to="/about">{staticText.about}</NavLink>
         </S.NavMenu>
       </ul>
     </S.NavBar>
