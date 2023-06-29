@@ -10,6 +10,7 @@ export const NavBar = styled.nav`
   width: 100%;
   background-color: ${colors.grey};
   color: ${colors.white};
+  z-index: 1;
 
   .logo {
     font-size: 32px;
