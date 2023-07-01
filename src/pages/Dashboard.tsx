@@ -2,11 +2,11 @@ import React from 'react';
 import * as S from './Dashboard.styled';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UrlContext, serverUrl } from '../utils/context';
-import NavBar from './NavBar';
-import HomePage from './Home';
-import Products from './Products';
+import NavBar from './NavBar/NavBar';
+import HomePage from './Home/Home';
+import Products from './Products/Products';
 import Cart from './Cart/Cart';
-import AboutPage from './About';
+import AboutPage from './About/About';
 
 const Dashboard = () => {
   return (

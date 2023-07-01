@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import * as S from './Home.styled';
-import Spinner from '../globalComponent/Spinner';
-import useOnLoadImages from '../hooks/useOnLoadImages';
+import Spinner from '../../globalComponent/Spinner';
+import useOnLoadImages from '../../hooks/useOnLoadImages';
 
 const HomePage = () => {
   const imgRef = useRef<HTMLDivElement>(null);

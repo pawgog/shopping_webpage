@@ -1,10 +1,10 @@
 import React, { FC, useRef } from 'react';
 import * as S from './ProductSingle.styled';
-import Button from '../globalComponent/Button';
-import CardLoading from '../globalComponent/CardLoading';
-import useOnLoadImages from '../hooks/useOnLoadImages';
-import { ProductObject } from '../utils/type';
-import { staticText } from '../utils/staticText';
+import Button from '../../globalComponent/Button';
+import CardLoading from '../../globalComponent/CardLoading';
+import useOnLoadImages from '../../hooks/useOnLoadImages';
+import { ProductObject } from '../../utils/type';
+import { staticText } from '../../utils/staticText';
 
 interface IProps {
   product: ProductObject;

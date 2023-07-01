@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { deviceMinWidth } from '../globalStyle/devices';
-import { colors } from '../globalStyle/colors';
+import { deviceMinWidth } from '../../globalStyle/devices';
+import { colors } from '../../globalStyle/colors';
 
 export const Product = styled.div`
   display: grid;

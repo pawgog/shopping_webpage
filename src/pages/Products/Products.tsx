@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import * as S from './Products.styled';
-import { useAppDispatch, useAppSelector } from '../hooks/useStore';
+import { useAppDispatch, useAppSelector } from '../../hooks/useStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync, updateQuantityProductCartAsync } from '../store/action';
-import { UrlContext } from '../utils/context';
-import { ProductObject } from '../utils/type';
-import { staticText } from '../utils/staticText';
-import { RootState } from '../store/store';
+import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync, updateQuantityProductCartAsync } from '../../store/action';
+import { UrlContext } from '../../utils/context';
+import { ProductObject } from '../../utils/type';
+import { staticText } from '../../utils/staticText';
+import { RootState } from '../../store/store';
 import ProductSingle from './ProductSingle';
-import CartModal from './Cart/CartModal';
-import Spinner from '../globalComponent/Spinner';
-import Error from '../globalComponent/Error';
-import useFetchingProducts from '../hooks/useFetchingProducts';
+import CartModal from './../Cart/CartModal';
+import Spinner from '../../globalComponent/Spinner';
+import Error from '../../globalComponent/Error';
+import useFetchingProducts from '../../hooks/useFetchingProducts';
 
 const Products = () => {
   const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './NavBar.styled';
 import { NavLink } from 'react-router-dom';
-import { staticText } from '../utils/staticText';
+import { staticText } from '../../utils/staticText';
 
 const NavBar = () => {
   return (

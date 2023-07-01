@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../globalStyle/colors';
+import { colors } from '../../globalStyle/colors';
 
 export const Products = styled.div`
   width: 90%;
