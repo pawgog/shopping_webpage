@@ -14,12 +14,13 @@ interface IProps {
 const ProductSingle: FC<IProps> = ({ product, addToCartFn }) => {
   const productRef = useRef<HTMLDivElement>(null);
   const imagesLoaded = useOnLoadImages(productRef);
-  const { title } = product;
+  const { title, imageUrl } = product;
 
   return (
     <S.Product ref={productRef}>
+      <img src={imageUrl} alt={title} width={0} height={0} />
       <S.ProductImage>
-        {imagesLoaded ? <img src="https://via.placeholder.com/560" alt={title} /> : <CardLoading />}
+        {imagesLoaded ? <img src={imageUrl} alt={title} /> : <CardLoading />}
       </S.ProductImage>
       <h4>{title}</h4>
       <Button $width={'auto'} $height={'30px'} onClick={addToCartFn}>

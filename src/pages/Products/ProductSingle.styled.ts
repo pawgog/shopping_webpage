@@ -14,24 +14,15 @@ export const Product = styled.div`
   padding: 0.8rem 0.3rem;
   background: ${colors.white};
 
-  & img {
-    min-height: 255px;
+  & > img {
+    position: fixed;
   }
 
   ${deviceMinWidth.sm`
     width: 100%;
-
-    & img {
-      width: 50%;
-      margin: 0 auto;
-    }
   `}
   ${deviceMinWidth.md`
     width: 44%;
-
-    & img {
-      width: 100%;
-    }
   `}
   ${deviceMinWidth.lg`
     width: 29%;
@@ -50,4 +41,20 @@ export const ProductImage = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0.5rem;
+
+  & img {
+    min-height: 255px;
+  }
+
+  ${deviceMinWidth.sm`
+    & img {
+      width: 50%;
+      margin: 0 auto;
+    }
+  `}
+  ${deviceMinWidth.md`
+    & img {
+      width: 100%;
+    }
+  `}
 `;
