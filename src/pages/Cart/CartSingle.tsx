@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import * as S from './CartSingle.styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../hooks/useStore';
 import { removeQuantityProductCartAsync, updateQuantityProductCartAsync } from '../../store/action';
 import { ProductObject } from '../../utils/type';
@@ -33,8 +35,8 @@ const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
         <button onClick={() => updateToCartFn(productId, quantity)}>+</button>
         <span>{quantity}</span>
         <button onClick={() => removeFromCartFn(productId, quantity)}>-</button>
-        <button className="cart-buttons__delete" onClick={() => deleteFromCartFn(productId)}><span>X</span></button>
       </div>
+      <div><button className="cart-buttons__delete" onClick={() => deleteFromCartFn(productId)}><FontAwesomeIcon icon={faTrash} /></button></div>
     </S.Cart>
   );
 };

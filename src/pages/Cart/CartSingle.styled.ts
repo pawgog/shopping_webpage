@@ -27,6 +27,15 @@ export const Cart = styled.div`
 
   & > .cart-buttons {
     grid-area: 2 / 1 / 3 / 3;
+
+    & button {
+      margin: 0.4rem;
+      color: ${colors.white};
+      background-color: ${colors.blue};
+      border: 1px solid ${colors.blue};
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 
   & .cart-buttons__delete {
@@ -36,7 +45,11 @@ export const Cart = styled.div`
     width: 1rem;
     height: 1rem;
     padding: 0;
-    font-size: 0.5rem;
+    font-size: 0.9rem;
+    color: ${colors.red};
+    border: none;
+    background: none;
+    cursor: pointer;
   }
 
   & img {
@@ -44,14 +57,5 @@ export const Cart = styled.div`
     height: 120px;
     margin: 0 auto;
     object-fit: cover;
-  }
-
-  & button {
-    margin: 0.4rem;
-    color: ${colors.white};
-    background-color: ${colors.blue};
-    border: 1px solid ${colors.blue};
-    border-radius: 4px;
-    cursor: pointer;
   }
 `;
