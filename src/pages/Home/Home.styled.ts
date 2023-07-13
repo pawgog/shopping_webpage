@@ -5,8 +5,7 @@ import { colors } from '../../globalStyle/colors';
 export const HomeStyled = styled.div`
   position: relative;
   width: 100%;
-  height: 91.7vh;
-  margin-top: -1.7rem;
+  height: 92.3vh;
 
   &::before {
     content: '';

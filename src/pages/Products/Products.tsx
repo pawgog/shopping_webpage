@@ -3,11 +3,17 @@ import * as S from './Products.styled';
 import { useAppDispatch, useAppSelector } from '../../hooks/useStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { addProductsCartAsync, deleteProductCartAsync, getProductsCartAsync, updateQuantityProductCartAsync } from '../../store/action';
+import {
+  addProductsCartAsync,
+  deleteProductCartAsync,
+  getProductsCartAsync,
+  updateQuantityProductCartAsync
+} from '../../store/action';
 import { UrlContext } from '../../utils/context';
 import { ProductObject } from '../../utils/type';
 import { staticText } from '../../utils/staticText';
 import { RootState } from '../../store/store';
+import ProductTopContent from './ProductTopContent';
 import ProductSingle from './ProductSingle';
 import CartModal from './../Cart/CartModal';
 import Spinner from '../../globalComponent/Spinner';
@@ -27,13 +33,13 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(getProductsCartAsync());
-  }, [])
+  }, []);
 
   const addToCart = (product: ProductObject) => {
     const cartProduct = cart?.find((item: ProductObject) => item.productId === product.productId);
-    const productQuantity = cartProduct?.quantity ? cartProduct.quantity + 1 : 0
+    const productQuantity = cartProduct?.quantity ? cartProduct.quantity + 1 : 0;
 
-    if (typeof cartProduct !== "undefined") {
+    if (typeof cartProduct !== 'undefined') {
       dispatch(updateQuantityProductCartAsync(product.productId, productQuantity));
     } else {
       dispatch(addProductsCartAsync(product));
@@ -58,24 +64,32 @@ const Products = () => {
     );
 
   return (
-    <S.Products>
-      <S.ProductsBoard>
-        {pricesSum.length > 0 && (
-        <S.ButtonNav onClick={handleOpenCart}>
-          <S.CircleItems>{cart.length}</S.CircleItems>
-          <FontAwesomeIcon icon={faCartShopping} />
-        </S.ButtonNav>
-        )}
-        {isLoadingProduct ? (
-          <Spinner />
-        ) : (
-          products.map((product: ProductObject) => (
-            <ProductSingle key={product._id} product={product} addToCartFn={() => addToCart(product)} />
-          ))
-        )}
-      </S.ProductsBoard>
-      <CartModal cartItems={cart} isModalOpen={isModalOpen} handleOpenCart={handleOpenCart} deleteFromCart={deleteFromCart} />
-    </S.Products>
+    <>
+      <ProductTopContent />
+      <S.Products>
+        <S.ProductsBoard>
+          {pricesSum.length > 0 && (
+            <S.ButtonNav onClick={handleOpenCart}>
+              <S.CircleItems>{cart.length}</S.CircleItems>
+              <FontAwesomeIcon icon={faCartShopping} />
+            </S.ButtonNav>
+          )}
+          {isLoadingProduct ? (
+            <Spinner />
+          ) : (
+            products.map((product: ProductObject) => (
+              <ProductSingle key={product._id} product={product} addToCartFn={() => addToCart(product)} />
+            ))
+          )}
+        </S.ProductsBoard>
+        <CartModal
+          cartItems={cart}
+          isModalOpen={isModalOpen}
+          handleOpenCart={handleOpenCart}
+          deleteFromCart={deleteFromCart}
+        />
+      </S.Products>
+    </>
   );
 };
 
