@@ -30,6 +30,7 @@ const Products = () => {
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartStore } = useAppSelector((state: RootState) => state);
   const { cart, pricesSum } = cartStore;
+  const firstProduct = products[0] || { title: '' };
 
   useEffect(() => {
     dispatch(getProductsCartAsync());
@@ -65,7 +66,7 @@ const Products = () => {
 
   return (
     <>
-      <ProductTopContent />
+      <ProductTopContent product={firstProduct} />
       <S.Products>
         <S.ProductsBoard>
           {pricesSum.length > 0 && (
