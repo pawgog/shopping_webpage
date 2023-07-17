@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { colors } from '../../globalStyle/colors';
 
+interface Props {
+  scrollPosition: number;
+}
+
 export const Products = styled.div`
   width: 90%;
   background-color: ${colors.background};
@@ -15,12 +19,12 @@ export const ProductsBoard = styled.div`
   margin: 0.5rem 0 1rem;
 `;
 
-export const ButtonNav = styled.button`
+export const ButtonNav = styled.button<Props>`
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 6rem;
+  top: ${({ scrollPosition }) => (scrollPosition > 0 ? '6rem' : '1rem')};
   right: 1rem;
   width: 4.5rem;
   height: 4.5rem;
@@ -28,6 +32,8 @@ export const ButtonNav = styled.button`
   border-radius: 4rem;
   color: ${colors.white};
   background-color: ${colors.grey};
+  z-index: 10;
+
   cursor: pointer;
   &:hover {
     color: ${colors.white};

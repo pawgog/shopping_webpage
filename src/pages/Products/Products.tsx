@@ -19,6 +19,7 @@ import CartModal from './../Cart/CartModal';
 import Spinner from '../../globalComponent/Spinner';
 import Error from '../../globalComponent/Error';
 import useFetchingProducts from '../../hooks/useFetchingProducts';
+import useScrollPosition from '../../hooks/useScrollPosition';
 
 const Products = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const Products = () => {
 
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
+  const { scrollPosition } = useScrollPosition();
   const { products, isLoading: isLoadingProduct, isError: isErrorProduct } = useFetchingProducts(apiUrl);
   const { cartStore } = useAppSelector((state: RootState) => state);
   const { cart, pricesSum } = cartStore;
@@ -70,7 +72,7 @@ const Products = () => {
       <S.Products>
         <S.ProductsBoard>
           {pricesSum.length > 0 && (
-            <S.ButtonNav onClick={handleOpenCart}>
+            <S.ButtonNav onClick={handleOpenCart} scrollPosition={scrollPosition}>
               <S.CircleItems>{cart.length}</S.CircleItems>
               <FontAwesomeIcon icon={faCartShopping} />
             </S.ButtonNav>
