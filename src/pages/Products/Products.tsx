@@ -66,7 +66,7 @@ const Products = () => {
 
   return (
     <>
-      <ProductTopContent product={firstProduct} />
+      <ProductTopContent product={firstProduct} addToCartFn={() => addToCart(firstProduct)} />
       <S.Products>
         <S.ProductsBoard>
           {pricesSum.length > 0 && (

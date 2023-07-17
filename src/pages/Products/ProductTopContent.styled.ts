@@ -9,3 +9,11 @@ export const ProductContent = styled.div`
   background-color: ${colors.grey};
   margin-bottom: 2rem;
 `;
+
+export const ProductContentDetails = styled.div`
+  padding: 2rem;
+
+  & button:hover {
+    color: ${colors.white};
+  }
+`;
