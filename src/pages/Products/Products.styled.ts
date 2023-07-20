@@ -33,6 +33,7 @@ export const ButtonNav = styled.button<Props>`
   color: ${colors.white};
   background-color: ${colors.grey};
   z-index: 10;
+  transition: top 0.5s;
 
   cursor: pointer;
   &:hover {
