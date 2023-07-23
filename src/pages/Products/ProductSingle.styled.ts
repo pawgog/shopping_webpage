@@ -43,18 +43,9 @@ export const ProductImage = styled.div`
   margin: 0.5rem;
 
   & img {
-    min-height: 255px;
+    width: 100%;
+    margin: 0 auto;
+    max-height: 255px;
+    object-fit: contain;
   }
-
-  ${deviceMinWidth.sm`
-    & img {
-      width: 50%;
-      margin: 0 auto;
-    }
-  `}
-  ${deviceMinWidth.md`
-    & img {
-      width: 100%;
-    }
-  `}
 `;

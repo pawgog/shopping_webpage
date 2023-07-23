@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { deviceMaxWidth } from '../../globalStyle/devices';
 import { colors } from '../../globalStyle/colors';
 
 interface Props {
@@ -34,6 +35,9 @@ export const ButtonNav = styled.button<Props>`
   background-color: ${colors.grey};
   z-index: 10;
   transition: top 0.5s;
+  ${deviceMaxWidth.sm`
+    top: 6rem;
+  `}
 
   cursor: pointer;
   &:hover {
