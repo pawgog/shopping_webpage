@@ -13,7 +13,7 @@ interface IProps {
 
 const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
   const dispatch = useAppDispatch();
-  const { title, productId, quantity=0 } = cart;
+  const { title, productId, imageUrl, quantity = 0 } = cart;
 
   const updateToCartFn = (id: number, quantity: number) => {
     dispatch(updateQuantityProductCartAsync(id, quantity));
@@ -28,7 +28,7 @@ const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
   return (
     <S.Cart>
       <div className="cart-image">
-        <img src="https://via.placeholder.com/260" alt={title} />
+        <img src={imageUrl} alt={title} />
       </div>
       <div className="cart-title">{title}</div>
       <div className="cart-buttons">
@@ -36,7 +36,11 @@ const CartSingle: FC<IProps> = ({ cart, deleteFromCartFn }) => {
         <span>{quantity}</span>
         <button onClick={() => removeFromCartFn(productId, quantity)}>-</button>
       </div>
-      <div><button className="cart-buttons__delete" onClick={() => deleteFromCartFn(productId)}><FontAwesomeIcon icon={faTrash} /></button></div>
+      <div>
+        <button className="cart-buttons__delete" onClick={() => deleteFromCartFn(productId)}>
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </div>
     </S.Cart>
   );
 };

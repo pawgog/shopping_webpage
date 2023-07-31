@@ -8,7 +8,7 @@ import {
 } from './reducer';
 import { Dispatch, ProductObject } from '../utils/type';
 
-const url = 'http://localhost:3210';
+const url = 'https://webshop-site-server.onrender.com';
 const apiUrl = `${url}/cart`;
 
 export const getProductsCartAsync = () => async (dispatch: Dispatch) => {
@@ -18,7 +18,7 @@ export const getProductsCartAsync = () => async (dispatch: Dispatch) => {
       url: `${apiUrl}`,
       withCredentials: false
     });
-    const [cartData] = data
+    const [cartData] = data;
     if (cartData.cart.length > 0) dispatch(getProductCart(cartData));
   } catch (error) {
     let message;

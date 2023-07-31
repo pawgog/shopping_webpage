@@ -1,4 +1,4 @@
 import { createContext } from 'react';
 
-export const serverUrl = 'http://localhost:3210';
+export const serverUrl = 'https://webshop-site-server.onrender.com';
 export const UrlContext = createContext(serverUrl);

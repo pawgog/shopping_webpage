@@ -6,7 +6,7 @@ import Error from '../../globalComponent/Error';
 import { UrlContext } from '../../utils/context';
 import { staticText } from '../../utils/staticText';
 
-const columnTable = ['', 'Item', 'Price', 'Quantity', 'Total']
+const columnTable = ['', 'Item', 'Price', 'Quantity', 'Total'];
 
 const Cart = () => {
   const url = useContext(UrlContext);
@@ -15,14 +15,14 @@ const Cart = () => {
   const [sek] = pricesSum;
 
   if (isLoading) {
-    <Spinner />
+    <Spinner />;
   }
   if (isError && !isLoading)
-  return (
-    <Error>
-      <h2>{staticText.error}</h2>
-    </Error>
-  );
+    return (
+      <Error>
+        <h2>{staticText.error}</h2>
+      </Error>
+    );
 
   return (
     <>
@@ -34,22 +34,35 @@ const Cart = () => {
           <>
             <S.TableStyled>
               <li className="table-header">
-                {columnTable.map((column: string, index) => <div key={column} className={`col col-${index}`}>{column}</div>)}
+                {columnTable.map((column: string, index) => (
+                  <div key={column} className={`col col-${index}`}>
+                    {column}
+                  </div>
+                ))}
               </li>
-              {cartItems.map(({ title, quantity=1, prices }) => {
+              {cartItems.map(({ title, imageUrl, quantity = 1, prices }) => {
                 const [sek] = prices;
-                  return (
-                    <li key={title} className="table-row">
-                      <div className="col col-0"><img src="https://via.placeholder.com/160" alt={title} /></div>
-                      <div className="col col-1" >{title}</div>
-                      <div className="col col-2" >{sek?.amount} {sek?.currency}</div>
-                      <div className="col col-3">{quantity}</div>
-                      <div className="col col-4">{sek?.amount * quantity} {sek?.currency}</div>
-                    </li>
-                  );
-                })}
-              </S.TableStyled>
-              <p>{sek?.amount} {sek?.currency}</p>   
+                return (
+                  <li key={title} className="table-row">
+                    <div className="col col-0">
+                      <img src={imageUrl} alt={title} />
+                    </div>
+                    <div className="col col-1">{title}</div>
+                    <div className="col col-2">
+                      {sek?.amount} {sek?.currency}
+                    </div>
+                    <div className="col col-3">{quantity}</div>
+                    <div className="col col-4">
+                      {sek?.amount * quantity} {sek?.currency}
+                    </div>
+                  </li>
+                );
+              })}
+            </S.TableStyled>
+            <S.CartPriceSum>
+              <span>Total prices: </span>
+              {sek?.amount} {sek?.currency}
+            </S.CartPriceSum>
           </>
         )}
       </S.CartBoard>

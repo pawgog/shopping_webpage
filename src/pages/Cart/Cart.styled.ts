@@ -6,6 +6,11 @@ export const CartBoard = styled.div`
   margin: 2rem 0;
 `;
 
+export const CartPriceSum = styled.div`
+  font-weight: 700;
+  text-align: right;
+`;
+
 export const TableStyled = styled.ul`
   padding: 0;
 
@@ -27,7 +32,7 @@ export const TableStyled = styled.ul`
   }
   & .table-row {
     background-color: ${colors.white};
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
   }
   & .col-0 {
     flex-basis: 25%;
