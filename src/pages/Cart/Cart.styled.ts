@@ -40,6 +40,7 @@ export const TableStyled = styled.ul`
   & .col-1 {
     flex-basis: 35%;
     text-align: center;
+    font-weight: 500;
   }
   & .col-2 {
     flex-basis: 15%;
