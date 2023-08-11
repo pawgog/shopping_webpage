@@ -14,6 +14,9 @@ export const CartPriceSum = styled.div`
 export const TableStyled = styled.ul`
   padding: 0;
 
+  & img {
+    width: 100%;
+  }
   & li {
     display: flex;
     justify-content: space-between;
@@ -50,7 +53,7 @@ export const TableStyled = styled.ul`
     flex-basis: 10%;
     text-align: center;
   }
-  .col-4 {
+  & .col-4 {
     flex-basis: 15%;
     text-align: center;
   }
