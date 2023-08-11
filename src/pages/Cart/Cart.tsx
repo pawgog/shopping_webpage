@@ -26,7 +26,7 @@ const Cart = () => {
 
   return (
     <>
-      <h2>{staticText.yourCart}</h2>
+      <S.CartTitle>{staticText.yourCart}</S.CartTitle>
       <S.CartBoard>
         {isLoading ? (
           <Spinner />

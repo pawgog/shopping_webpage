@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import { colors } from '../../globalStyle/colors';
 
+export const CartTitle = styled.h2`
+  font-style: italic;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+`;
+
 export const CartBoard = styled.div`
   width: 85%;
   margin: 2rem 0;
