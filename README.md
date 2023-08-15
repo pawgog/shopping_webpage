@@ -1,6 +1,7 @@
 # Shopping webpage
 
-This project was build in React with Typescript.
+This application is an ecommerce webshop with products and cart management from DummyJSON REST API.
+Project was build in React with Typescript.
 Styles are set by using library styled-component, which is designed for writing css styles with JavaScript.
 State management is based in Redux Toolkit.
 
