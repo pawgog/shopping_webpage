@@ -58,6 +58,7 @@ export const TableStyled = styled.ul`
   & .col-3 {
     flex-basis: 10%;
     text-align: center;
+    padding: 0 1rem;
   }
   & .col-4 {
     flex-basis: 15%;

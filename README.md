@@ -2,7 +2,7 @@
 
 This project was build in React with Typescript.
 Styles are set by using library styled-component, which is designed for writing css styles with JavaScript.
-Application was moved from Redux to React Query to improve app efficiency.
+State management is based in Redux Toolkit.
 
 ## Project demo
 
