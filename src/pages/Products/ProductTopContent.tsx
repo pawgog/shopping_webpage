@@ -30,7 +30,7 @@ const ProductTopContent: FC<IProps> = ({ product, addToCartFn }) => {
       </S.ProductContentDetails>
       <S.ProductContentImage ref={productRef}>
         <img src={imageUrl} alt={title} width={0} height={0} />
-        {imagesLoaded ? <img src={imageUrl} alt={title} /> : <CardLoading />}
+        {imagesLoaded ? <S.ProductImage src={imageUrl} alt={title} /> : <CardLoading />}
       </S.ProductContentImage>
     </S.ProductContent>
   );

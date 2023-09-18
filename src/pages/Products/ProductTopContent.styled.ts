@@ -34,6 +34,11 @@ export const ProductContentImage = styled(ProductContentDetails)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const ProductImage = styled.img`
+  width: auto;
+  max-height: 300px;
 
   ${deviceMaxWidth.md`
     & img {
