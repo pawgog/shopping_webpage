@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { deviceMaxWidth } from '../../globalStyle/devices';
 import { colors } from '../../globalStyle/colors';
 
 export const HomeStyled = styled.div`
@@ -27,6 +28,10 @@ export const HomeContentStyled = styled.div`
   position: relative;
   padding: 0 3rem;
   top: 25%;
+
+  ${deviceMaxWidth.md`
+    top: 15%
+  `}
 `;
 
 export const HomeBoxStyled = styled.div`
@@ -35,6 +40,10 @@ export const HomeBoxStyled = styled.div`
   left: 10%;
   padding: 2rem;
   background-color: ${colors.whiteOpacity};
+
+  ${deviceMaxWidth.md`
+    width: 60%
+  `}
 
   & > p {
     text-align: justify;
