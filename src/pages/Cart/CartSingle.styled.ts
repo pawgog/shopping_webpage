@@ -56,6 +56,5 @@ export const Cart = styled.div`
     width: 120px;
     height: 120px;
     margin: 0 auto;
-    object-fit: cover;
   }
 `;
